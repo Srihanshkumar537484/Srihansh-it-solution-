@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    
+ 
+    <title>My Services - Portfolio</title>
+    <style>
+        /* --- General Page Structure and Utility Styles --- */
+        .page-content { padding-top: 100px; padding-bottom: 50px; }
+        .page-title { text-align: center; color: #333; font-size: 2.5em; margin-bottom: 10px; }
+        .service-intro { text-align: center; color: #666; max-width: 800px; margin: 0 auto 50px; font-size: 1.1em; }
+        
+        /* --- Service List Layout --- */
+        .service-list-container { display: flex; flex-direction: column; gap: 30px; }
+        .service-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 25px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+        .service-item:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1); }
+        
+        /* --- Service Info Section --- */
+        .service-info { flex: 2; margin-right: 30px; }
+        .service-info i { font-size: 2em; color: #007bff; margin-bottom: 15px; }
+        .service-info h3 { font-size: 1.6em; color: #333; margin-bottom: 10px; }
+        .service-info p { color: #555; line-height: 1.6; margin-bottom: 15px; }
+        .service-link { color: #007bff; text-decoration: none; font-weight: 600; }
+        .service-link:hover { text-decoration: underline; }
+
+        /* --- Package Prices Section --- */
+        .package-prices { flex: 1; min-width: 250px; background-color: #f7f9fc; padding: 15px; border-radius: 8px; border: 1px solid #eee; }
+        .package-name { font-weight: 600; color: #333; margin-bottom: 5px; font-size: 0.95em; }
+        .price { font-size: 1.2em; font-weight: 700; color: #28a745; display: block; margin-bottom: 10px; }
+        .featured-price { color: #007bff; }
+
+        /* --- Button Styles --- */
+        .view-packages-btn {
+            background-color: #6c757d;
+            color: white !important;
+            padding: 8px 15px;
+            border-radius: 5px;
+            text-align: center;
+            display: block;
+            margin-top: 5px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        .view-packages-btn:hover { background-color: #5a6268; }
+
+        /* Styles for Pay Now buttons */
+        .btn-pay {
+            background-color: #28a745; /* WhatsApp-like Green */
+            color: white !important;
+            padding: 8px 15px;
+            border-radius: 5px;
+            text-align: center;
+            display: block;
+            margin-top: 5px;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+        .btn-pay:hover {
+            background-color: #218838;
+        }
+        .btn-pay-featured {
+            background-color: #007bff; /* Featured Blue */
+            color: white !important;
+            padding: 8px 15px;
+            border-radius: 5px;
+            text-align: center;
+            display: block;
+            margin-top: 5px;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+        .btn-pay-featured:hover {
+            background-color: #0056b3;
+        }
+        
+        /* --- Contact Section --- */
+        .contact-section { 
+            text-align: center; 
+            margin: 80px 0; 
+            padding: 40px; 
+            background-color: #f0f8ff; 
+            border-radius: 15px; 
+        }
+        .contact-title { font-size: 2em; color: #007bff; margin-bottom: 10px; }
+        .contact-text { color: #666; margin-bottom: 25px; }
+        .contact-details { margin-bottom: 30px; display: flex; justify-content: center; flex-wrap: wrap; gap: 20px; }
+        .contact-link { color: #333; text-decoration: none; font-weight: 500; transition: color 0.3s; }
+        .contact-link i { margin-right: 8px; color: #007bff; }
+        .contact-link:hover { color: #0056b3; }
+        .btn.contact-btn { 
+            background-color: #ffc107; 
+            color: #333 !important; 
+            padding: 12px 30px; 
+            border-radius: 8px; 
+            text-decoration: none; 
+            font-weight: 700; 
+            display: inline-block;
+            transition: background-color 0.3s; 
+        }
+        .btn.contact-btn:hover { background-color: #e0a800; }
+
+        /* --- Footer Styles --- */
+        .footer { background-color: #333; color: white; text-align: center; padding: 40px 20px; }
+        .footer h2 { font-size: 1.5em; margin-bottom: 10px; }
+        .footer p { color: #ccc; margin-bottom: 20px; }
+        .footer .social-links a { color: #007bff; margin: 0 10px; text-decoration: none; transition: color 0.3s; }
+        .footer .social-links a:hover { color: #e9ecef; }
+        .footer .social-links i { margin-right: 5px; }
+        .footer .copyright { margin-top: 20px; font-size: 0.8em; color: #999; }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 900px) {
+            .service-item { flex-direction: column; align-items: stretch; }
+            .service-info { margin-right: 0; margin-bottom: 20px; }
+            .package-prices { min-width: auto; }
+        }
+        @media (max-width: 600px) {
+            .page-title { font-size: 2em; }
+            .contact-details { flex-direction: column; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <nav class="navbar">
+            <a href="index.html" class="nav-logo">SRIHANSH IT SOLUTIONS</a>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="services.html" class="nav-link active">Services</a></li>
+                <li class="nav-item"><a href="packages.html" class="nav-link">Packages</a></li>
+                <li class="nav-item"><a href="https://drive.google.com/drive/folders/1-A3CR4LtHUjCQLEGhwlUDrYXDZhBL1-4" class="nav-link" target="_blank">Editing Portfolio</a></li>
+                <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+                <li class="nav-item"><a href="about.html" class="nav-link active">About Me</a></li
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container page-content">
+        <h1 class="page-title">My Services</h1>
+        <p class="service-intro">Main aapke business aur brand ko badhane ke liye kai tarah ki digital services offer karta hoon. Hamare packages aur pricing dekhein:</p>
+        
+        
+        <div class="service-list-container">
+
+            
+            <div class="service-item">
+                <div class="service-info">
+                    <i class="fas fa-video"></i>
+                    <h3>Video Editing</h3>
+                    <p>Main high-quality video editing services provide karta hoon jo aapki kahani ko behtareen tareeke se pesh kare. Shorts/Reels se lekar long-form content tak.</p>
+                    <a href="https://drive.google.com/drive/folders/1-A3CR4LtHUjCQLEGhwlUDrYXDZhBL1-4" class="service-link" target="_blank"><i class="fab fa-google-drive"></i> Portfolio</a>
+                </div>
+                <div class="package-prices">
+                    <p class="package-name">Basic Video Package:</p>
+                    <span class="price">₹4,999 (50 Videos)</span>
+                    
+                    <a href="https://wa.me/916388714912?text=Service%20enquiry" class="view-packages-btn btn-pay" target="_blank" rel="noopener">WhatsApp for Details</a>
+                    <p class="package-name" style="margin-top: 10px;">Pro Video Package:</p>
+                    <span class="price">₹9,999 (100 Videos)</span>
+                    
+                    <a href="https://wa.me/916388714912?text=Service%20enquiry" class="view-packages-btn btn-pay-featured" target="_blank" rel="noopener">WhatsApp for Details</a>
+                </div>
+            </div>
+
+            
+            <div class="service-item">
+                <div class="service-info">
+                    <i class="fas fa-laptop-code"></i>
+                    <h3>Web Development (Custom Code)</h3>
+                    <p>Aapke business ke liye responsive, fast-loading, aur high-performance custom websites banata hoon (Jaise React, Angular, ya pure HTML/CSS/JS).</p>
+                </div>
+                <div class="package-prices">
+                    <p class="package-name">Standard Site:</p>
+                    <span class="price">₹4,999 (Static/5 Pages)</span>
+                    
+                    <a href="https://wa.me/916388714912?text=Service%20enquiry" class="view-packages-btn btn-pay" target="_blank" rel="noopener">WhatsApp for Details</a>
+                    <p class="package-name" style="margin-top: 10px;">Enterprise Site:</p>
+                    <span class="price">₹29,999+ (Dynamic/Custom Backend)</span>
+                    
+                    <a href="https://wa.me/916388714912?text=Service%20enquiry" class="view-packages-btn btn-pay-featured" target="_blank" rel="noopener">WhatsApp for Details</a>
+                </div>
+            </div>
+
+            
+            <div class="service-item">
+                <div class="service-info">
+                    <i class="fab fa-wordpress"></i>
+                    <h3>Website via WordPress</h3>
+                    <p>WordPress ka upyog karke aakarshak aur asaan-se-manage hone wali websites design aur develop karta hoon, jaise Blogs aur E-commerce stores.</p>
+                </div>
+                <div class="package-prices">
+                    <p class="package-name">Basic WP Starter:</p>
+                    <span class="price">₹3,999 (4 Pages)</span>
+                    
+                    <a href="https://wa.me/916388714912?text=Service%20enquiry" class="view-packages-btn btn-pay" target="_blank" rel="noopener">WhatsApp for Details</a>
+                    <p class="package-name" style="margin-top: 10px;">WP E-commerce/Blogging:</p>
+                    <span class="price">₹14,999+ (WooCommerce/Full Site)</span>
+                    
+                    <a href="https://wa.me/916388714912?text=Service%20enquiry" class="view-packages-btn btn-pay-featured" target="_blank" rel="noopener">WhatsApp for Details</a>
+                </div>
+            </div>
+            
+            
+            <div class="service-item">
+                <div class="service-info">
+                    <i class="fab fa-google"></i>
+                    <h3>Google AdSense / Google Ads Management</h3>
+                    <p>Aapki website ya YouTube channel par Google AdSense revenue ko maximize aur optimize karta hoon. Targeted Google Ads (PPC) campaigns bhi manage karta hoon.</p>
+                </div>
+                <div class="package-prices">
+                    <p class="package-name">AdSense Optimization Basic:</p>
+                    <span class="price">₹2,999 / Month</span>
+                    
+                    <a href="https://wa.me/916388714912?text=Service%20enquiry" class="view-packages-btn btn-pay" target="_blank" rel="noopener">WhatsApp for Details</a>
+                    <p class="package-name" style="margin-top: 10px;">Google Ads Campaign Pro:</p>
+                    <span class="price">₹6,999 / Month</span>
+                    
+                    <a href="https://wa.me/916388714912?text=Service%20enquiry" class="view-packages-btn btn-pay-featured" target="_blank" rel="noopener">WhatsApp for Details</a>
+                </div>
+            </div>
+
+            
+            <div class="service-item">
+                <div class="service-info">
+                    <i class="fab fa-facebook"></i>
+                    <h3>Facebook Ads Management</h3>
+                    <p>Facebook aur Instagram par effective advertising campaigns chala kar aapke business ke liye leads aur sales generate karta hoon.</p>
+                </div>
+                <div class="package-prices">
+                    <p class="package-name">Facebook Ad Basic Campaign:</p>
+                    <span class="price">₹1,999 / Month</span>
+                    
+                    <a href="https://wa.me/916388714912?text=Service%20enquiry" class="view-packages-btn btn-pay" target="_blank" rel="noopener">WhatsApp for Details</a>
+                    <p class="package-name" style="margin-top: 10px;">Advanced Retargeting Pro:</p>
+                    <span class="price">₹4,999 / Month</span>
+                    
+                    <a href="https://wa.me/916388714912?text=Service%20enquiry" class="view-packages-btn btn-pay-featured" target="_blank" rel="noopener">WhatsApp for Details</a>
+                </div>
+            </div>
+
+            
+            <div class="service-item">
+                <div class="service-info">
+                    <i class="fas fa-share-alt"></i>
+                    <h3>Social Media Marketing (SMM)</h3>
+                    <p>Aapki brand ko social media par promote karta hoon, jisse engagement aur organic reach badh sake. Content strategy, scheduling aur analysis shamil hai.</p>
+                </div>
+                <div class="package-prices">
+                    <p class="package-name">Starter SMM (1 Platform):</p>
+                    <span class="price">₹2,999 / Month</span>
+                    
+                    <a href="https://wa.me/916388714912?text=Service%20enquiry" class="view-packages-btn btn-pay" target="_blank" rel="noopener">WhatsApp for Details</a>
+                    <p class="package-name" style="margin-top: 10px;">Growth SMM (3 Platforms):</p>
+                    <span class="price">₹6,999 / Month</span>
+                    
+                    <a href="https://wa.me/916388714912?text=Service%20enquiry" class="view-packages-btn btn-pay-featured" target="_blank" rel="noopener">WhatsApp for Details</a>
+                </div>
+            </div>
+
+        </div>
+        
+
+        <section class="contact-section">
+            <h2 class="contact-title">Interested in working together?</h2>
+            <p class="contact-text">Mujhse sampark karke apne project ke baare mein baat karein. Main aapke business ko aage badhane mein madad kar sakta hoon.</p>
+            <div class="contact-details">
+                <a href="mailto:sva16081999@gmail.com" class="contact-link"><i class="fas fa-envelope"></i> sva16081999@gmail.com</a>
+                <a href="tel:6388714912" class="contact-link"><i class="fas fa-phone"></i> +91-6388714912</a>
+            </div>
+            <a href="https://www.instagram.com/ksit_solutions" class="btn contact-btn">Send Me a Message</a>
+        </section>
+
+    </main>
+
+    <footer id="contact" class="footer">
+        <h2>Get in Touch</h2>
+        <p>Aap mujhse yahan sampark kar sakte hain:</p>
+        <div class="social-links">
+            <a href="mailto:sva16081999@gmail.com" target="_blank"><i class="fas fa-envelope"></i> Email</a>
+            <a href="tel:+916388714912" target="_blank"><i class="fas fa-phone"></i> Call Me</a>
+            <a href="https://wa.me/+916388714912" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+            <a href="https://www.instagram.com/ksit_solutions" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+        </div>
+        <p class="copyright">&copy; 2025 | SRIHANSH IT SOLUTIONS . All rights reserved.</p>
+    </footer>
+    
+    <script src="script.js"></script>
+</body>
+</html>

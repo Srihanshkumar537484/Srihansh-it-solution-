@@ -1,0 +1,875 @@
+/* Google Font Import */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+/* CSS Variables for colors */
+:root {
+    --primary-color: #4a90e2; /* Main blue color */
+    --secondary-color: #f5a623; /* Accent orange color */
+    --bg-color: #f4f7f6; /* Light gray background */
+    --text-color: #333333; /* Dark gray text */
+    --header-bg: #ffffff; /* White header */
+    --footer-bg: #333;
+    --footer-text: #f4f7f6;
+    --hero-gradient-1: #6a11cb;
+    --hero-gradient-2: #103ee5;
+}
+
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* Header and Navbar */
+.header {
+    background-color: var(--header-bg);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+}
+
+.nav-logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-decoration: none;
+    color: var(--primary-color);
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: var(--primary-color);
+}
+
+/* Hamburger Menu for Mobile */
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: var(--text-color);
+    transition: all 0.3s ease-in-out;
+}
+
+/* Hero Section */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+    min-height: 80vh;
+    background: linear-gradient(135deg, var(--hero-gradient-1), var(--hero-gradient-2));
+    color: #fff;
+    border-radius: 15px;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+    animation: rotate 20s linear infinite;
+}
+
+.hero-text {
+    flex: 1;
+    z-index: 1;
+}
+
+.hero-text h2 {
+    font-size: 2rem;
+    font-weight: 300;
+}
+
+.hero-text h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    margin-top: -10px;
+}
+
+.hero-text p {
+    font-size: 1.2rem;
+    margin: 1.5rem 0;
+}
+
+.highlight {
+    font-weight: 600;
+    color: var(--secondary-color);
+}
+
+.hero-image {
+    flex: 1;
+    text-align: center;
+    z-index: 1;
+}
+
+.hero-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 50%;
+    border: 5px solid rgba(255,255,255,0.5);
+    box-shadow: 0 0 20px rgba(0,0,0,0.2);
+    transition: transform 0.5s ease;
+}
+
+.hero-image img:hover {
+    transform: scale(1.05);
+}
+
+.btn {
+    display: inline-block;
+    background-color: var(--secondary-color);
+    color: #fff;
+    padding: 12px 24px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #e0931e;
+    transform: translateY(-3px);
+}
+
+
+/* Animations */
+@keyframes fadeInSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.animate-text {
+    animation: fadeInSlideUp 1s ease-out;
+}
+.animate-image {
+    animation: fadeInSlideUp 1s ease-out 0.3s;
+    animation-fill-mode: backwards;
+}
+
+
+/* Services Page */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+.page-content {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+}
+.page-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: var(--primary-color);
+}
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+.service-card {
+    background: #fff;
+    padding: 2rem;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+.service-card i {
+    font-size: 3rem;
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+}
+.service-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+}
+
+/* Resume Page */
+.resume-container {
+    text-align: center;
+}
+.resume-container .btn {
+    margin-bottom: 2rem;
+}
+.resume-viewer {
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Footer */
+.footer {
+    background-color: var(--footer-bg);
+    color: var(--footer-text);
+    text-align: center;
+    padding: 3rem 2rem;
+}
+
+.footer h2 {
+    margin-bottom: 1rem;
+}
+
+.social-links {
+    margin: 1rem 0;
+}
+
+.social-links a {
+    color: var(--footer-text);
+    text-decoration: none;
+    margin: 0 1rem;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+}
+.social-links a i {
+    margin-right: 0.5rem;
+}
+
+.social-links a:hover {
+    color: var(--secondary-color);
+}
+
+.copyright {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+}
+
+
+/* Responsive Design */
+@media(max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+    
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 70px;
+        flex-direction: column;
+        background-color: #fff;
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
+    
+    .nav-item {
+        padding: 1.5rem 0;
+    }
+
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        gap: 2rem;
+    }
+
+    .hero-text h1 {
+        font-size: 2.5rem;
+    }
+    .hero-text h2 {
+        font-size: 1.5rem;
+    }
+    .hero-image {
+        order: -1;
+    }
+}
+
+/* New styles for Services Page */
+
+.service-intro {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #555;
+    max-width: 800px;
+    margin: 0 auto 3rem auto;
+}
+
+.service-card .service-link {
+    display: inline-block;
+    margin-top: 1rem;
+    text-decoration: none;
+    color: var(--primary-color);
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.service-card .service-link:hover {
+    color: var(--secondary-color);
+}
+
+.contact-section {
+    text-align: center;
+    background-color: #fff;
+    padding: 3rem 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    margin-top: 4rem;
+}
+
+.contact-title {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.contact-text {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 2rem;
+}
+
+.contact-details {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+/* This is a general link style which was removed to prevent conflicts
+.contact-link {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+*/
+
+.contact-link i {
+    margin-right: 0.5rem;
+    color: var(--primary-color);
+}
+
+.contact-link:hover {
+    color: var(--primary-color);
+}
+
+.contact-btn {
+    padding: 15px 30px;
+    font-size: 1.1rem;
+}
+
+/* Media Queries for Contact Section */
+@media(max-width: 576px) {
+    .contact-details {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+}
+
+/* Contact Page Specific Styles */
+.contact-links-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+    text-align: center;
+}
+.contact-card {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* --- FIX FOR CONTACT TEXT VISIBILITY START --- */
+
+.contact-card a {
+    /* Ensure generic links (like email address, phone number text) are dark and visible */
+    color: var(--text-color, #333333); 
+    text-decoration: none;
+}
+
+.contact-card a:hover {
+    color: var(--primary-color);
+}
+
+.contact-card h3 {
+    font-size: 1.5rem;
+    color: var(--text-color); 
+    margin-bottom: 0.5rem;
+}
+
+/* Re-apply button styles explicitly to ensure the button text is white on its blue background */
+.contact-link {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: #fff; /* Force white text for the button */
+    padding: 10px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    margin-top: 1rem;
+    transition: background-color 0.3s ease;
+}
+/* --- FIX FOR CONTACT TEXT VISIBILITY END --- */
+
+
+.contact-link:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* =============================== */
+/* Services and Contact Sections for Home Page */
+/* =============================== */
+
+/* Common Section Styling */
+.services-section, 
+.contact-section {
+    padding: 60px 0; /* Top and bottom padding */
+    text-align: center;
+}
+
+/* Service Grid Layout */
+.services-grid, 
+.contact-links-grid {
+    display: grid;
+    /* 3 columns on large screens, 2 on medium, 1 on small */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+    padding: 0 20px;
+}
+
+/* Service Card Style */
+.service-card, 
+.contact-card {
+    background-color: #ffffff; /* White background for cards */
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 30px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover, 
+.contact-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+}
+
+.service-card i, 
+.contact-card i {
+    font-size: 40px;
+    color: #007bff; /* Primary color (Blue, adjust as needed) */
+    margin-bottom: 15px;
+}
+
+.service-card h3,
+.contact-card h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.service-card p {
+    font-size: 15px;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.service-link,
+.contact-link {
+    display: inline-block;
+    color: #007bff; /* Primary color */
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.service-link:hover,
+.contact-link:hover {
+    text-decoration: underline;
+}
+
+/* Utility Class (for centering buttons) */
+.text-center {
+    text-align: center;
+}
+
+/* Custom Styles for Packages and Pricing Page */
+
+/* Section Layout */
+.pricing-section {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 2.2em;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 40px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--primary-color, #007BFF);
+    display: inline-block;
+}
+
+/* Pricing Grid */
+.pricing-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+/* Individual Package Card */
+.package-card {
+    background-color: #ffffff; 
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    padding: 30px;
+    width: 100%;
+    max-width: 380px;
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.package-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Featured Card Styling (for Pro/Growth packages) */
+.package-card.featured {
+    border: 3px solid var(--primary-color, #007BFF);
+    background-color: #f0f8ff; /* Light blue background for emphasis */
+}
+
+.package-card h3 {
+    font-size: 1.6em;
+    color: #333;
+    margin-top: 0;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+/* Price Display */
+.package-card .price {
+    font-size: 2.8em;
+    font-weight: 700;
+    color: var(--primary-color, #007BFF);
+    margin: 15px 0 20px 0;
+    display: block;
+    text-align: center;
+}
+
+.package-card .price span {
+    font-size: 0.4em;
+    font-weight: 400;
+    color: #666;
+    display: block;
+    line-height: 1;
+}
+
+.package-card p {
+    font-size: 0.95em;
+    color: #666;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+/* Feature List */
+.package-card ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 30px;
+}
+
+.package-card ul li {
+    margin-bottom: 15px;
+    font-size: 1em;
+    color: #555;
+    display: flex;
+    align-items: center;
+    line-height: 1.4;
+}
+
+.package-card ul li i {
+    color: #28a745; /* Success color for checkmark */
+    margin-right: 12px;
+    font-size: 1.2em;
+    min-width: 20px; /* Aligns text correctly */
+}
+
+/* Button Styling (Assuming btn class exists in style.css) */
+.package-card .btn {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 12px 25px;
+    font-size: 1.1em;
+    border-radius: 5px;
+    /* Inheritance from style.css for default btn appearance */
+}
+
+.package-card .btn-primary {
+    background-color: var(--primary-color, #007BFF);
+    color: white;
+    border: 1px solid var(--primary-color, #007BFF);
+}
+
+.package-card .btn-primary:hover {
+    background-color: #0056b3;
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .pricing-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+    .package-card {
+        max-width: 90%;
+    }
+    .section-title {
+        font-size: 1.8em;
+    }
+}
+
+/* Custom Styles for Services Page Layout */
+
+.service-list-container {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    margin-top: 40px;
+}
+
+.service-item {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: box-shadow 0.3s ease;
+}
+
+.service-item:hover {
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
+}
+
+/* Left Section: Service Info */
+.service-info {
+    flex: 3; /* Takes up about 70% of the width on desktop */
+    padding: 25px;
+    border-right: 1px solid #f0f0f0;
+}
+
+.service-info i {
+    font-size: 2em;
+    color: var(--primary-color, #007BFF);
+    margin-bottom: 10px;
+}
+
+.service-info h3 {
+    font-size: 1.5em;
+    font-weight: 600;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.service-info p {
+    font-size: 0.95em;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.service-link {
+    display: inline-block;
+    color: var(--primary-color, #007BFF);
+    font-weight: 500;
+    font-size: 0.9em;
+}
+
+/* Right Section: Package Prices */
+.package-prices {
+    flex: 1.5; /* Takes up about 30% of the width on desktop */
+    min-width: 150px;
+    background-color: #f8f8f8;
+    padding: 20px 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    text-align: right;
+    border-radius: 0 10px 10px 0;
+}
+
+.package-name {
+    font-size: 0.8em;
+    font-weight: 600;
+    color: #999;
+    margin: 5px 0 2px 0;
+}
+
+.price {
+    font-size: 1.2em;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 15px;
+    line-height: 1;
+}
+
+.featured-price {
+    font-size: 1.4em;
+    color: #28a745; /* Green for featured price */
+    margin-bottom: 20px;
+}
+
+.view-packages-btn {
+    background-color: var(--primary-color, #007BFF);
+    color: white;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-size: 0.85em;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+.view-packages-btn:hover {
+    background-color: #0056b3;
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 768px) {
+    .service-item {
+        flex-direction: column;
+    }
+    
+    .service-info {
+        border-right: none;
+        border-bottom: 1px dashed #e0e0e0;
+    }
+
+    .package-prices {
+        flex: 1; 
+        width: 100%;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        text-align: left;
+        padding: 20px 25px;
+        border-radius: 0 0 10px 10px;
+    }
+
+    .package-prices .package-name,
+    .package-prices .price {
+        flex: 1 1 50%; /* Allows names and prices to take half the width */
+        margin: 5px 0;
+        text-align: left;
+    }
+
+    .package-prices .price {
+        text-align: right;
+    }
+    
+    .package-prices .view-packages-btn {
+        margin-top: 15px;
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* ===== SIHANS IT SOLUTIONS | 3D NEON REDESIGN ===== */
+:root{--bg:#050806;--panel:#0b120e;--panel2:#101b14;--green:#a7ff4f;--green2:#5eea8a;--muted:#a8b6aa;--line:rgba(167,255,79,.18);--white:#f4fff5}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{background:radial-gradient(ellipse at 50% -15%,rgba(70,150,80,.2),transparent 45%),var(--bg)!important;color:var(--white)!important;font-family:'Poppins',sans-serif!important;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;opacity:.16;background-image:linear-gradient(rgba(167,255,79,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(167,255,79,.07) 1px,transparent 1px);background-size:48px 48px;mask-image:linear-gradient(to bottom,black,transparent 80%)}
+a{color:var(--green)}.header{background:rgba(4,9,6,.82)!important;backdrop-filter:blur(18px);border-bottom:1px solid var(--line);box-shadow:0 8px 35px #0008}.navbar{max-width:1240px;margin:auto;min-height:76px}.nav-logo{color:var(--green)!important;font-weight:800;letter-spacing:.4px}.nav-link{color:#e4eee5!important;transition:.25s}.nav-link:hover,.nav-link.active{color:var(--green)!important}.hamburger .bar{background:var(--green)!important}
+.hero{position:relative;min-height:590px;padding:110px max(6vw,24px) 90px!important;display:grid;grid-template-columns:1.15fr .85fr;align-items:center;gap:50px;background:transparent!important;isolation:isolate;overflow:hidden}.hero:before{content:"";position:absolute;width:460px;height:460px;border:1px solid rgba(167,255,79,.22);border-radius:50%;right:9%;top:55px;box-shadow:0 0 90px rgba(113,255,93,.12),inset 0 0 90px rgba(113,255,93,.08);z-index:-1;animation:orbit 18s linear infinite}.hero:after{content:"";position:absolute;width:300px;height:300px;right:15%;top:135px;border:1px dashed rgba(167,255,79,.3);border-radius:30%;transform:rotate(35deg);z-index:-1;animation:orbit 24s linear infinite reverse}.hero-text h2{color:var(--green)!important;letter-spacing:3px;text-transform:uppercase;font-size:1rem}.hero-text h1{color:#f6fff5!important;font-size:clamp(2.5rem,6vw,5rem)!important;line-height:1.06;margin:15px 0}.hero-text p{color:var(--muted)!important;max-width:650px;line-height:1.9}.highlight{color:var(--green)!important}.hero-image{position:relative;justify-self:center;perspective:1000px}.hero-image:before{content:"";position:absolute;inset:12% -8%;border:1px solid var(--green);border-radius:24px;transform:rotateY(-18deg) rotateX(8deg);box-shadow:0 0 45px rgba(167,255,79,.18);z-index:-1}.hero-image img{width:min(330px,75vw);height:390px;object-fit:cover;border-radius:22px;border:1px solid rgba(167,255,79,.5);box-shadow:25px 25px 0 rgba(167,255,79,.07),0 25px 70px #000;transform:rotateY(-8deg);background:#101810}.btn,.contact-btn{display:inline-flex!important;align-items:center;justify-content:center;background:var(--green)!important;color:#071006!important;border:0!important;border-radius:999px!important;padding:14px 26px!important;font-weight:800!important;text-decoration:none!important;box-shadow:0 0 24px rgba(167,255,79,.2);transition:.25s}.btn:hover,.contact-btn:hover{transform:translateY(-3px);box-shadow:0 0 36px rgba(167,255,79,.4)}
+.container,.page-content{max-width:1200px!important}.services-section,.testimonials-section,.contact-section,.about-section,.pricing-section{background:transparent!important;color:var(--white)!important}.page-title,.section-title{color:var(--green)!important;border-color:var(--line)!important}.page-subtitle,.service-intro{color:var(--muted)!important}.services-grid,.testimonial-grid,.pricing-grid{gap:22px!important}.service-card,.testimonial-card,.package-card,.contact-card,.about-card{background:linear-gradient(145deg,rgba(16,28,19,.96),rgba(7,13,9,.98))!important;color:var(--white)!important;border:1px solid var(--line)!important;border-radius:20px!important;box-shadow:0 18px 45px #0007!important;transition:transform .3s,border-color .3s,box-shadow .3s!important}.service-card:hover,.package-card:hover,.testimonial-card:hover{transform:translateY(-7px);border-color:rgba(167,255,79,.55)!important;box-shadow:0 22px 55px rgba(0,0,0,.55),0 0 25px rgba(167,255,79,.09)!important}.service-card h3,.package-card h3,.testimonial-card h4{color:var(--green)!important}.service-card p,.package-card p,.package-card ul li,.review-text,.reviewer-info p{color:var(--muted)!important}.service-card i,.package-card ul li i{color:var(--green)!important}.package-card .price{color:var(--green)!important}.package-card .price span{color:var(--muted)!important}.package-card.featured{border:1px solid var(--green)!important}.package-card a.btn{background:var(--green)!important;color:#071006!important}.contact-section{border:1px solid var(--line);border-radius:22px;padding:35px!important}.contact-section h2,.contact-title{color:var(--green)!important}.contact-section a,.footer a{color:var(--green)!important}.footer,footer{background:#030604!important;color:var(--muted)!important;border-top:1px solid var(--line)}
+.neon-kicker{display:inline-block;color:var(--green);font-size:.78rem;letter-spacing:3px;text-transform:uppercase;font-weight:700;margin-bottom:12px}.showcase-section{padding:80px 20px;text-align:center}.showcase-section h2{color:var(--green);font-size:clamp(1.8rem,4vw,3rem);margin-bottom:10px}.showcase-section>p{color:var(--muted);margin:0 auto 34px;max-width:680px}.showcase-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:22px;max-width:1150px;margin:auto}.showcase-card{padding:28px;text-align:left;background:linear-gradient(145deg,#101b14,#070d09);border:1px solid var(--line);border-radius:20px;box-shadow:0 18px 45px #0007}.showcase-card .icon3d{height:58px;width:58px;border-radius:18px;display:grid;place-items:center;color:#071006;background:linear-gradient(135deg,#d4ff9b,var(--green2));font-size:1.5rem;box-shadow:0 10px 28px #a7ff4f25;margin-bottom:18px}.showcase-card h3{color:var(--green);margin:0 0 9px}.showcase-card p{color:var(--muted);line-height:1.7}.showcase-card a{font-weight:700;text-decoration:none}.stats-row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;max-width:720px;margin:28px auto}.stat-chip{padding:20px;border:1px solid var(--line);border-radius:16px;background:#0c150f}.stat-chip strong{display:block;color:var(--green);font-size:1.8rem}.stat-chip span{color:var(--muted);font-size:.9rem}
+@keyframes orbit{to{transform:rotate(360deg)}}.animate-text,.animate-image{animation:rise .8s ease both}@keyframes rise{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:800px){.hero{grid-template-columns:1fr;text-align:center;padding:105px 22px 65px!important;gap:35px;min-height:auto}.hero-text p{margin-left:auto;margin-right:auto}.hero-image{grid-row:1}.hero-image img{height:300px;width:245px}.hero:before{width:300px;height:300px;right:calc(50% - 150px);top:45px}.hero:after{width:220px;height:220px;right:calc(50% - 110px);top:85px}.nav-logo{font-size:1rem}.showcase-section{padding:55px 16px}.showcase-grid{grid-template-columns:1fr}.page-content{padding-left:16px;padding-right:16px}}
+
+.nav-menu.active{display:flex!important;flex-direction:column;position:absolute;top:76px;left:0;right:0;background:#050a07;padding:20px;border-bottom:1px solid var(--line);z-index:50}.service-card,.package-card,.showcase-card,.stat-chip{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease,border-color .3s}.is-visible{opacity:1!important;transform:translateY(0)!important}@media(max-width:800px){.nav-menu{display:none}.nav-menu.active{display:flex}.hamburger{display:flex;cursor:pointer}}@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;scroll-behavior:auto!important;transition:none!important}}
+
+/* Layouts for service and contact sections (self-contained; no missing CSS dependencies) */
+.service-list-container{display:grid;gap:22px;max-width:1120px;margin:35px auto}.service-item{display:grid;grid-template-columns:1.2fr .8fr;gap:24px;align-items:center;padding:26px;background:linear-gradient(145deg,#101b14,#070d09);border:1px solid var(--line);border-radius:20px;box-shadow:0 18px 45px #0007}.service-info h3{color:var(--green)!important}.service-info p,.package-name{color:var(--muted)!important}.service-info>i{color:var(--green);font-size:2rem}.package-prices{padding:18px;background:#071009;border:1px solid var(--line);border-radius:16px}.package-prices .price{display:block;color:var(--green)!important;font-weight:800;font-size:1.2rem;margin:5px 0 10px}.view-packages-btn{display:inline-block;padding:10px 16px;border-radius:30px;background:var(--green);color:#071006!important;text-decoration:none;font-weight:800;margin-bottom:8px}.contact-links-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}.contact-card{padding:22px;text-align:center}.contact-card i{color:var(--green);font-size:1.6rem}.contact-card h3{color:var(--green)}.contact-card a{color:var(--muted)!important;overflow-wrap:anywhere}@media(max-width:800px){.service-item{grid-template-columns:1fr;padding:18px}.package-prices{padding:14px}}

@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>About Me | Srihansh Kumar</title>
+    <style>
+        /* Common Styles (Consistent with previous pages) */
+        :root {
+            --primary-color: #007bff; /* Blue for highlights */
+            --secondary-color: #28a745; /* Green for success/pay buttons */
+            --dark-color: #1212ee; /* Deep Purple-Black for dark text, footer, contact section background */
+            --light-bg: #f5f5f5; /* Lighter, subtle background */
+            --text-color: #4542ed;
+            --white: white;
+            --max-width: 1200px;
+        } , qffcz  l2df 
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--light-bg);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* --- RESTORED HEADER & NAVIGATION STYLES --- */
+        .header {
+            background-color: var(--white); /* CHANGED TO WHITE */
+            width: 100%;
+            z-index: 1000;
+            padding: 10px 0; 
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* Added subtle shadow for elevation */
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 5px 0;
+        }
+        .nav-logo {
+            color: var(--dark-color); /* CHANGED TO DARK for contrast */
+            text-decoration: none;
+            font-size: 1.6em; 
+            font-weight: 800;
+        }
+        .nav-menu {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+        .nav-item { margin-left: 30px; }
+        .nav-link {
+            color: var(--dark-color); /* CHANGED TO DARK for contrast */
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 10px;
+            border-radius: 6px;
+            transition: color 0.3s, background-color 0.3s;
+        }
+        .nav-link:hover, .nav-link.active { 
+            /* Note: .active link uses --primary-color */
+            color: var(--white); 
+            background-color: var(--primary-color);
+            font-weight: 600; 
+        }
+        
+        /* Hamburger Menu for Mobile (Hidden on Desktop) */
+        .hamburger { display: none; cursor: pointer; }
+        .bar { 
+            display: block; width: 25px; height: 3px; margin: 5px auto; 
+            -webkit-transition: all 0.3s ease-in-out; 
+            transition: all 0.3s ease-in-out; 
+            background-color: var(--dark-color); /* CHANGED TO DARK for contrast */
+        }
+        /* --- END RESTORED HEADER & NAVIGATION STYLES --- */
+
+        /* Main Content Padding Adjusted */
+        main { padding-top: 0; } 
+
+        /* --- UPDATED PROFILE SECTION STYLES (More Stylish) --- */
+        .hero-about {
+            background: linear-gradient(135deg, #e0f7fa 0%, var(--white) 100%);
+            padding: 100px 0; 
+            text-align: center;
+            border-radius: 0 0 30px 30px; 
+            margin-bottom: 70px;
+        }
+
+        .profile-card {
+            max-width: 950px;
+            margin: 0 auto;
+            padding: 50px; 
+            background: var(--white);
+            border-radius: 20px; 
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15); 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border: 1px solid #ddd;
+        }
+
+        .profile-photo {
+            width: 160px; 
+            height: 160px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 6px solid var(--primary-color); 
+            margin-bottom: 30px;
+            box-shadow: 0 0 0 10px rgba(0, 123, 255, 0.1); 
+            transition: transform 0.4s ease;
+        }
+        .profile-photo:hover {
+             transform: scale(1.03);
+             box-shadow: 0 0 0 10px rgba(40, 167, 69, 0.2); 
+             border-color: var(--secondary-color);
+        }
+
+        .profile-card h1 {
+            color: var(--dark-color);
+            font-size: 2.8em; 
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .profile-card p.tagline {
+            color: #ff6f00; 
+            font-weight: 700;
+            margin-bottom: 25px;
+            font-size: 1.2em;
+            letter-spacing: 1px;
+        }
+
+        .profile-card p.bio {
+            text-align: center;
+            color: #555;
+            max-width: 800px;
+            margin-bottom: 40px;
+            font-size: 1.05em;
+        }
+
+        .btn-hire {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: var(--white) !important;
+            padding: 14px 40px; 
+            border-radius: 50px; 
+            text-decoration: none;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+            box-shadow: 0 8px 15px rgba(40, 167, 69, 0.4);
+        }
+        .btn-hire:hover { 
+            background-color: #1e7e34; 
+            transform: translateY(-3px);
+            box-shadow: 0 12px 20px rgba(40, 167, 69, 0.6);
+        }
+
+
+        /* --- Services/Expertise Section (Enhanced Cards) --- */
+        .expertise-section {
+            padding: 50px 0;
+            text-align: center;
+        }
+
+        .expertise-section h2 {
+            color: var(--dark-color);
+            font-size: 2.5em;
+            margin-bottom: 60px;
+            border-bottom: 5px solid var(--primary-color);
+            display: inline-block;
+            padding-bottom: 8px;
+            font-weight: 800;
+        }
+
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 35px;
+            margin-top: 30px;
+        }
+
+        .expertise-item {
+            background: var(--white);
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            text-align: left;
+            border-bottom: 5px solid transparent; 
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        .expertise-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            border-bottom-color: var(--primary-color);
+            background-color: #fffcfc;
+        }
+
+        .expertise-item i {
+            font-size: 2.2em; 
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .expertise-item h3 {
+            font-size: 1.4em;
+            margin-top: 0;
+            color: var(--dark-color);
+            font-weight: 700;
+        }
+
+        .expertise-item p {
+            font-size: 1em;
+            color: #666;
+        }
+        
+        /* --- TESTIMONIALS SECTION STYLES --- */
+        .testimonials-section {
+            padding: 70px 0;
+            background-color: var(--white);
+            text-align: center;
+        }
+        
+        .testimonials-section h2 {
+            font-size: 2.5em;
+            color: var(--dark-color);
+            margin-bottom: 60px;
+            border-bottom: 5px solid var(--secondary-color); 
+            display: inline-block;
+            padding-bottom: 8px;
+            font-weight: 800;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .testimonial-card {
+            background-color: #f9f9f9;
+            padding: 30px;
+            border-radius: 12px;
+            text-align: left;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+            border-left: 5px solid var(--secondary-color);
+            transition: transform 0.3s ease;
+        }
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .quote-icon {
+            font-size: 1.8em;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .review-text {
+            font-style: italic;
+            color: #555;
+            margin-bottom: 20px;
+            font-size: 1.05em;
+        }
+
+        .reviewer-info {
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .reviewer-info h4 {
+            margin: 0;
+            font-size: 1.1em;
+            color: var(--dark-color);
+            font-weight: 700;
+        }
+
+        .reviewer-info p {
+            margin: 0;
+            font-size: 0.9em;
+            color: var(--primary-color);
+        }
+        
+        .stars i {
+            color: gold;
+            margin-right: 2px;
+        }
+
+
+        /* --- Contact Section (Darker, More Contrast) --- */
+        .contact-section { 
+            text-align: center; 
+            margin: 100px 0; 
+            padding: 60px; 
+            background-color: var(--dark-color); 
+            border-radius: 15px; 
+            color: var(--white);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+        .contact-section h2 { 
+            font-size: 2.8em; 
+            color: var(--primary-color); 
+            margin-bottom: 15px;
+            font-weight: 800;
+        }
+        .contact-section p { 
+            color: #b0c4de; 
+            margin-bottom: 40px; 
+            font-size: 1.15em;
+        }
+        .contact-details { margin-bottom: 30px; display: flex; justify-content: center; flex-wrap: wrap; gap: 40px; }
+        .contact-link { 
+            color: var(--white); 
+            text-decoration: none; 
+            font-weight: 600; 
+            transition: color 0.3s; 
+            font-size: 1.1em;
+        }
+        .contact-link i { margin-right: 10px; color: var(--primary-color); }
+        .contact-link:hover { color: var(--secondary-color); }
+        .btn.contact-btn { 
+            background-color: var(--secondary-color); 
+            color: var(--white) !important; 
+            padding: 16px 50px; 
+            border-radius: 50px; 
+            text-decoration: none; 
+            font-weight: 700; 
+            display: inline-block;
+            transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+            box-shadow: 0 8px 15px rgba(40, 167, 69, 0.4);
+        }
+        .btn.contact-btn:hover { background-color: #1e7e34; transform: translateY(-3px); box-shadow: 0 12px 20px rgba(40, 167, 69, 0.6); }
+
+
+        /* --- Footer Styles --- */
+        .footer { 
+            background-color: var(--dark-color); 
+            color: white; 
+            text-align: center; 
+            padding: 40px 20px; 
+        }
+        .footer h2 { font-size: 1.6em; margin-bottom: 15px; color: var(--primary-color); }
+        .footer .social-links a { color: var(--primary-color); margin: 0 12px; text-decoration: none; font-size: 1.3em; transition: color 0.3s; }
+        .footer .social-links a:hover { color: var(--white); transform: scale(1.1); }
+        .footer .copyright { margin-top: 20px; font-size: 0.9em; color: #aaa; }
+
+        /* --- Responsive Adjustments --- */
+        @media (max-width: 768px) {
+            
+            /* RESTORED MOBILE NAV STYLES */
+            .nav-menu {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px; 
+                left: 0;
+                width: 100%;
+                /* Use a slightly off-white for mobile menu background */
+                background-color: var(--light-bg); 
+                padding: 10px 0;
+                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            }
+            .nav-menu.active { display: flex; }
+            .nav-item { margin: 10px 0; text-align: center; }
+            .nav-link { 
+                padding: 10px 20px; 
+                display: block;
+                color: var(--dark-color); /* Ensure mobile links are dark on light background */
+            }
+            .hamburger { display: block; }
+            /* END RESTORED MOBILE NAV STYLES */
+
+            .profile-card h1 { font-size: 2em; }
+            .profile-card p.tagline { font-size: 1em; }
+            .contact-details { flex-direction: column; }
+            .expertise-grid { grid-template-columns: 1fr; }
+            .expertise-section h2, .contact-section h2 { font-size: 2em; }
+            .testimonial-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <nav class="container navbar">
+            <a href="index.html" class="nav-logo">SRIHANSH IT SOLUTIONS</a>
+            <ul class="nav-menu" id="navMenu">
+                <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="about.html" class="nav-link active">About Me</a></li>
+                <li class="nav-item"><a href="services.html" class="nav-link">Services</a></li>
+                <li class="nav-item"><a href="packages.html" class="nav-link">Packages</a></li>
+                <li class="nav-item"><a href="https://drive.google.com/drive/folders/1-A3CR4LtHUjCQLEGhwlUDrYXDZhBL1-4" class="nav-link" target="_blank">Editing Portfolio</a></li>
+                <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        
+        <!-- 1. Profile / About Section -->
+        <section class="hero-about">
+            <div class="container">
+                <div class="profile-card">
+                    <!-- Profile Photo (Using your uploaded image) -->
+                    <img src="images/srihansh.jpeg" 
+                         alt="Srihansh Kumar - Profile Photo" 
+                         class="profile-photo"
+                         onerror="this.onerror=null; this.src='https://placehold.co/160x160/007bff/ffffff?text=Srihansh';">
+
+                    <h1>Srihansh Kumar | Digital Specialist & Editor</h1>
+                    <p class="tagline">Founder of SIHANS IT Solutions & Editing | Dedicated to Digital Growth</p>
+                    
+                    <p class="bio">
+                        Hello! I am Srihansh Kumar, the founder of *SIHANS IT Solutions & Editing. I am dedicated to transforming your digital aspirations into reality. My mission is to elevate your brand to new heights through high-quality **Video Editing, fast and responsive **Custom Web Development* (React, Angular, WordPress), and effective *Digital Marketing Strategies* (Google & Facebook Ads, SMM). My goal is not just to provide a service, but to be a committed digital partner focused entirely on your business success.
+                    </p>
+                    <a href="contact.html" class="btn-hire">Get in Touch</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. Services Summary / Expertise Section -->
+        <section class="expertise-section">
+            <div class="container">
+                <h2>My Core Expertise</h2>
+                <div class="expertise-grid">
+
+                    <div class="expertise-item">
+                        <i class="fas fa-video"></i>
+                        <h3>Professional Video Editing</h3>
+                        <p>Engaging and fast editing for Shorts, Reels, and Long-Form content, designed to maximize viewer retention and engagement.</p>
+                    </div>
+
+                    <div class="expertise-item">
+                        <i class="fas fa-laptop-code"></i>
+                        <h3>Custom Web Development</h3>
+                        <p>Building fast, secure, and scalable custom websites using modern technologies like React, Angular, and pure HTML/CSS/JS.</p>
+                    </div>
+
+                    <div class="expertise-item">
+                        <i class="fab fa-google"></i>
+                        <h3>Google Ads & AdSense Management</h3>
+                        <p>Managing Google Ads (PPC) campaigns for predictable returns and maximizing AdSense revenue through optimal placement.</p>
+                    </div>
+
+                    <div class="expertise-item">
+                        <i class="fas fa-share-alt"></i>
+                        <h3>Social Media Marketing (SMM)</h3>
+                        <p>Running effective advertising campaigns on Facebook and Instagram to generate qualified leads and drive sales for your business.</p>
+                    </div>
+
+                </div>
+                <div style="margin-top: 50px;">
+                    <a href="services.html" class="btn-hire" style="background-color: var(--primary-color);">View All Services and Packages</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Testimonials Section (New) -->
+        <section class="testimonials-section">
+            <div class="container">
+                <h2>Trusted by Clients Worldwide</h2>
+                <div class="testimonial-grid">
+                    
+                    <!-- --- US CLIENT REVIEWS (15) --- -->
+                    
+                    <!-- US Client 1 (Web Dev - React) -->
+                    <div class="testimonial-card">
+                        <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                        <p class="review-text">"KS IT Solutions delivered a sophisticated React application ahead of schedule. Their code quality and attention to detail were phenomenal. True professionals in custom development."</p>
+                        <div class="reviewer-info">
+                            <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                            <h4>John D. Sterling</h4>
+                            <p>CTO, Tech Solutions Inc.</p>
+                        </div>
+                    </div>
+
+                    <!-- US Client 2 (Digital Marketing - Google Ads) -->
+                    <div class="testimonial-card">
+                        <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                        <p class="review-text">"Our Google Ads campaign performance skyrocketed after partnering with Srihansh. They provided expert guidance on budget allocation and delivered an impressive 4X ROI."</p>
+                        <div class="reviewer-info">
+                            <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                            <h4>Sarah T. Evans</h4>
+                            <p>Marketing Director, Global Brands</p>
+                        </div>
+                    </div>
+
+                    <!-- US Client 3 (Video Editing - Content) -->
+                    <div class="testimonial-card">
+                        <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                        <p class="review-text">"The video editing team is exceptional. They transformed raw footage into highly engaging Reels and Shorts that immediately boosted our social media metrics. Fantastic work ethic."</p>
+                        <div class="reviewer-info">
+                            <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                            <h4>Michael B. Chen</h4>
+                            <p>Head of Content, Fitness Hub</p>
+                        </div>
+                    </div>
+                    
+                    <!-- US Client 4 (Web Dev - Angular) -->
+                    <div class="testimonial-card">
+                        <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                        <p class="review-text">"The Angular application built by KS IT is robust and incredibly fast. The team's expertise in frontend performance is clearly evident. Highly satisfied with the final product."</p>
+                        <div class="reviewer-info">
+                            <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                            <h4>Emily R. Stone</h4>
+                            <p>Project Manager, Financial Tech</p>
+                        </div>
+                    </div>
+
+                    <!-- US Client 5 (SMM) -->
+                    <div class="testimonial-card">
+                        <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                        <p class="review-text">"Effective Social Media Marketing! Our leads from Facebook and Instagram have never been cleaner. Srihansh understands how to target the right audience efficiently."</p>
+                        <div class="reviewer-info">
+                            <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                            <h4>Robert L. Green</h4>
+                            <p>Owner, Auto Detailing Co.</p>
+                        </div>
+                    </div>
+
+                    <!-- US Client 6 (Editing/YouTube) -->
+                    <div class="testimonial-card">
+                        <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                        <p class="review-text">"Professional editing service that truly understands the YouTube algorithm. They helped us maintain a consistent, high-quality output every week."</p>
+                        <div class="reviewer-info">
+                            <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                            <h4>Jessica K. Lee</h4>
+                            <p>YouTuber/Vlogger</p>
+                        </div>
+                    </div>
+
+                    <!-- US Client 7 (Web Dev - WordPress) -->
+                    <div class="testimonial-card">
+                        <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                        <p class="review-text">"Needed a fast WordPress site setup for a new product launch. KS IT delivered an optimized, mobile-friendly design that converts beautifully."</p>
+                        <div class="reviewer-info">
+                            <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                            <h4>David A. Miller</h4>
+                            <p>Small Business Owner</p>
+                        </div>
+                    </div>
+
+                    <!-- US Client 8 (Google Ads/AdSense) -->
+                    <div class="testimonial-card">
+                        <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                        <p class="review-text">"Their advice on AdSense placement instantly doubled our site's RPM. A straightforward and effective solution that drove real passive income growth."</p>
+                        <div class="reviewer-info">
+                            <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                            <h4>Olivia P. Wilson</h4>
+                            <p>Blogger/Publisher</p>
+                        </div>
+                    </div>
+                    
+                    <!-- US Client 9 (Web Dev - React/Performance) -->
+                    <div class="testimonial-card">
+                        <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                        <p class="review-text">"Exceptional React development skills. They quickly resolved complex state management issues and improved our app's loading time significantly. 5 stars!"</p>
+                        <div class="reviewer-info">
+                            <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                            <h4>James M. Taylor</h4>
+                            <p>Lead Developer, Gaming Studio</p>
+                        </div>
+                    </div>
+                    
+                    <!-- US Client 10 (SMM Strategy) -->
+                    <div class="testimonial-card">
+                        <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                        <p class="review-text">"Srihansh is a strategic thinker. The tailored SMM strategy they created for us was highly profitable and perfectly aligned with our brand voice."</p>
+                        <div class="reviewer-info">
+                            <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                            <h4>Maria C. Rodriguez</h4>
+                            <p>Brand Manager, Lifestyle</p>
+                        </div>
+                    </div>
+
+                    <!-- US Client 11 (Long-Form Video Editing) -->
+                    <div class="testimonial-card">
+                        <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                        <p class="review-text">"High-quality long-form video editing for our educational series. The pacing and graphics were flawless, making complex topics easy to digest."</p>
+                        <div class="reviewer-info">
+                            <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                            <h4>William H. Baker</h4>
+                            <p>CEO, Education Platform</p>
+                        </div>
+                    </div>
+                    
+                    <!-- US Client 12 (Responsive Web Design) -->
+                    <div class="testimonial-card">
+                        <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                        <p class="review-text">"They built a fully responsive site that looks amazing on desktop and mobile. Excellent communication and dedication throughout the entire process."</p>
+                        <div class="reviewer-info">
+                            <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                            <h4>Linda S. Peterson</h4>
+                            <p>UX/UI Consultant</p>
+                        </div>
+                    </div>
+
+                    <!-- US Client 13 (E-commerce Video Editing) -->
+                    <div class="testimonial-card">
+                        <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                        <p class="review-text">"Product videos edited by KS IT convert better than anything we've used before. Quick turnaround time and strong marketing insight applied to the visuals."</p>
+                        <div class="reviewer-info">
+                            <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                            <h4>Kevin J. Adams</h4>
+                            <p>E-commerce Manager, Apparel</p>
+                        </div>
+                    </div>
+
+                    <!-- US Client 14 (Full Stack) -->
+                    <div class="testimonial-card">
+                        <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                        <p class="review-text">"Hired them for full-stack maintenance. Their backend expertise and commitment to security are outstanding. Truly reliable technical support."</p>
+                        <div class="reviewer-info">
+                            <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                            <h4>Nancy W. Hall</h4>
+                            <p>Product Lead, Software</p>
+                        </div>
+                    </div>
+                    
+                    <!-- US Client 15 (AdSense Optimization) -->
+                    <div class="testimonial-card">
+                        <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                        <p class="review-text">"Seamless AdSense integration and optimization. They managed to boost our CPM without sacrificing user experience. Highly recommended for publishers."</p>
+                        <div class="reviewer-info">
+                            <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                            <h4>Thomas F. Young</h4>
+                            <p>Digital Publisher</p>
+                        </div>
+                    </div>
+                    
+                    <!-- --- INDIAN CLIENT REVIEWS (10) --- -->
+                    
+                    <!-- Indian Client 1 (SMM/Local Business) -->
+                    <div class="testimonial-card">
+                        <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                        <p class="review-text">"Local business marketing ke liye Srihansh se behtar koi nahi. Facebook Ads ka result bahut accha raha, aur leads bhi quality ki aayi. Bahut dhanyawad!"</p>
+                        <div class="reviewer-info">
+                            <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                            <h4>Vivek Jain</h4>
+                            <p>Owner, Electronics Store, Delhi</p>
+                        </div>
+                    </div>
+
+                    <!-- Indian Client 2 (Video Editing - Reels) -->
+                    <div class="testimonial-card">
+                        <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                        <p class="review-text">"Mere educational content ke liye video editing ki service li thi. Reels ki quality itni shaandaar hai ki engagement turant badh gaya. Timely delivery mili."</p>
+                        <div class="reviewer-info">
+                            <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                            <h4>Anjali Sharma</h4>
+                            <p>EdTech Content Creator</p>
+                        </div>
+                    </div>
+
+                    <!-- Indian Client 3 (Web Development) -->
+                    <div class="testimonial-card">
+                        <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                        <p class="review-text">"Meri website bahut fast aur professional bani hai. Inhone bahut kam samay mein responsive design taiyar kar diya. Definitely, I recommend them for web solutions."</p>
+                        <div class="reviewer-info">
+                            <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                            <h4>Rohan Mehra</h4>
+                            <p>Startup Founder, Mumbai</p>
+                        </div>
+                    </div>
+
+                    <!-- Indian Client 4 (Google Ads) -->
+                    <div class="testimonial-card">
+                        <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                        <p class="review-text">"Google Ads mein inki strategy ne kamaal kar diya. Cost effective campaigns aur high conversion rate. Inke paas India market ki acchi samajh hai."</p>
+                        <div class="reviewer-info">
+                            <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                            <h4>Neha Verma</h4>
+                            <p>Digital Marketing Head</p>
+                        </div>
+                    </div>
+
+                    <!-- Indian Client 5 (Shorts Editing) -->
+                    <div class="testimonial-card">
+                        <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                        <p class="review-text">"YouTube Shorts ki editing ke liye contact kiya tha. Har video mein naya punch aur zabardast pacing dete hain. Ab views bahut behtar aate hain."</p>
+                        <div class="reviewer-info">
+                            <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                            <h4>Gaurav Singh</h4>
+                            <p>Gaming & Finance Vlogger</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Indian Client 6 (WordPress + SEO) -->
+                    <div class="testimonial-card">
+                        <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                        <p class="review-text">"Unbelievable WordPress customization! The site is smooth, secure, and the initial SEO optimization they included has started bringing organic traffic."</p>
+                        <div class="reviewer-info">
+                            <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                            <h4>Pooja Das</h4>
+                            <p>Content Writer & Trainer</p>
+                        </div>
+                    </div>
+
+                    <!-- Indian Client 7 (SMM Lead Generation) -->
+                    <div class="testimonial-card">
+                        <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                        <p class="review-text">"Facebook aur Instagram se acchi leads generate ho rahi hain. Campaign cost control mein rakha aur results time par diye. Highly professional."</p>
+                        <div class="reviewer-info">
+                            <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                            <h4>Sanjay Kumar</h4>
+                            <p>Real Estate Consultant</p>
+                        </div>
+                    </div>
+
+                    <!-- Indian Client 8 (React Web App) -->
+                    <div class="testimonial-card">
+                        <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                        <p class="review-text">"React mein ek complex internal tool banwana tha. KS IT Solutions ne use perfectly execute kiya. Clean code aur excellent support."</p>
+                        <div class="reviewer-info">
+                            <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                            <h4>Aarav Patel</h4>
+                            <p>Head of Operations, Logistics</p>
+                        </div>
+                    </div>
+
+                    <!-- Indian Client 9 (Urgency/Delivery) -->
+                    <div class="testimonial-card">
+                        <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                        <p class="review-text">"Bahut urgent video editing chahiye thi. Srihansh ne raat bhar kaam karke project complete kiya. Commitment level 10/10 hai!"</p>
+                        <div class="reviewer-info">
+                            <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                            <h4>Kriti Rao</h4>
+                            <p>Digital Agency Partner</p>
+                        </div>
+                    </div>
+
+                    <!-- Indian Client 10 (Holistic Digital Help) -->
+                    <div class="testimonial-card">
+                        <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                        <p class="review-text">"Ek hi jagah par web development aur social media marketing ki madad mili. Poora digital ecosystem set up kar diya. Highly recommended service provider."</p>
+                        <div class="reviewer-info">
+                            <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                            <h4>Manish Goel</h4>
+                            <p>Textile Business Head, Jaipur</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- 4. Final Contact Section -->
+        <section class="contact-section">
+            <div class="container">
+                <h2>Interested in working together?</h2>
+                <p>Contact me directly to discuss your project needs. I am ready to assist you on your digital journey.</p>
+                <div class="contact-details">
+                    <a href="mailto:sva16081999@gmail.com" class="contact-link"><i class="fas fa-envelope"></i> sva16081999@gmail.com</a>
+                    <a href="tel:6388714912" class="contact-link"><i class="fas fa-phone"></i> +91-6388714912</a>
+                </div>
+                <a href="https://wa.me/+916388714912" class="btn contact-btn">Send a Message on WhatsApp</a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer id="contact" class="footer">
+        <div class="container">
+            <h2>Get in Touch</h2>
+            <p>You can connect with me here:</p>
+            <div class="social-links">
+                <a href="mailto:sva16081999@gmail.com" target="_blank"><i class="fas fa-envelope"></i> Email</a>
+                <a href="tel:+916388714912" target="_blank"><i class="fas fa-phone"></i> Call Me</a>
+                <a href="https://wa.me/+916388714912" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                <a href="https://www.instagram.com/ksit_solutions" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+            </div>
+            <p class="copyright">&copy; 2025 | SRIHANSH IT SOLUTIONS . All rights reserved.</p>
+
+        </div>
+    </footer>
+    
+    <script>
+        // JavaScript for mobile navigation toggle
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+
+        if (hamburger && navMenu) {
+            hamburger.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+            });
+        }
+    </script>
+</body>
+</html>

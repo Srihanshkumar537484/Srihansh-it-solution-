@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- User's External CSS Files (Header styles are assumed to be here) -->
+    <link rel="stylesheet" href="style.css"> 
+
+    <title>Service Packages & INR Pricing - SRIHANSH IT SOLUTIONS</title>
+    
+    <style>
+        /* --- Only Pricing and Button Specific CSS --- */
+        
+        /* Pricing Section and Grid Layout */
+        .page-content { padding-top: 100px; } /* Ensure space for fixed header */
+        .section-title { text-align: center; margin: 50px 0 30px; color: #333; font-size: 1.8em; border-bottom: 2px solid #ddd; padding-bottom: 10px; }
+        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        
+        /* Package Card Styles */
+        .package-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .package-card:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15); }
+        .package-card h3 { color: #007bff; font-size: 1.5em; margin-bottom: 15px; border-bottom: 1px solid #eee; padding-bottom: 10px; }
+        .package-card .price { display: block; font-size: 2.5em; font-weight: 700; color: #28a745; margin-bottom: 10px; }
+        .package-card .price span { display: block; font-size: 0.8em; color: #6c757d; font-weight: 400; }
+        .package-card p { color: #666; margin-bottom: 25px; min-height: 40px; }
+        .package-card ul { list-style: none; padding: 0; text-align: left; margin-bottom: 30px; }
+        .package-card ul li { padding: 8px 0; border-bottom: 1px dashed #eee; color: #555; }
+        .package-card ul li i { margin-right: 10px; color: #28a745; }
+
+        /* Featured Card Specific Styles */
+        .package-card.featured { border: 3px solid #007bff; box-shadow: 0 10px 40px rgba(0, 123, 255, 0.2); }
+        .package-card.featured h3 { color: #0056b3; }
+        .package-card.featured .price { color: #007bff; }
+        .package-card.featured ul li i { color: #007bff; }
+
+        /* WhatsApp Inquiry Button Styling */
+        .package-card a.btn {
+            margin-top: 20px;
+            background-color: #28a745; /* Green color for PayPal */
+            color: white;
+            border: none;
+            padding: 12px 20px; 
+            border-radius: 8px; 
+            text-align: center;
+            text-decoration: none;
+            display: block;
+            font-weight: 700; 
+            transition: background-color 0.3s, transform 0.2s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+        }
+        .package-card a.btn:hover { background-color: #218838; transform: translateY(-2px); }
+        
+        /* Featured Button Styling */
+        .package-card.featured a.btn-primary { background-color: #007bff; } /* Primary color for featured */
+        .package-card.featured a.btn-primary:hover { background-color: #0056b3; transform: translateY(-2px); }
+        
+        /* Contact Section */
+        .contact-section { text-align: center; margin: 80px 0; padding: 40px; background-color: #e9f5ff; border-radius: 15px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05); }
+        .contact-btn { background-color: #ffc107; color: #333; padding: 12px 30px; border-radius: 8px; text-decoration: none; font-weight: 600; transition: background-color 0.3s; }
+        .contact-btn:hover { background-color: #e0a800; }
+
+        /* Responsive adjustments for pricing grid */
+        @media (max-width: 768px) {
+            .pricing-grid { grid-template-columns: 1fr; }
+            .package-card { margin-bottom: 20px; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Header HTML - PURE HTML STRUCTURE (Assuming CSS is external) -->
+    <header class="header">
+        <nav class="navbar">
+            <a href="index.html" class="nav-logo">SRIHANSH IT SOLUTIONS</a>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="services.html" class="nav-link active">Services</a></li>
+                <li class="nav-item"><a href="packages.html" class="nav-link">Packages</a></li>
+                <li class="nav-item"><a href="https://drive.google.com/drive/folders/1-A3CR4LtHUjCQLEGhwlUDrYXDZhBL1-4" class="nav-link" target="_blank">Editing Portfolio</a></li>
+                <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+                <li class="nav-item"><a href="about.html" class="nav-link active">About Me</a></li
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+    <!-- End Header -->
+
+    <main class="container page-content">
+        <h1 class="page-title">Service Packages & INR Pricing</h1>
+        <p class="page-subtitle">Apne business ki zaroorat ke mutabik sabse accha package chunein.</p>
+        
+        <section class="pricing-section">
+            
+            <h2 class="section-title"><i class="fas fa-video"></i> Video Editing Packages</h2>
+            <div class="pricing-grid">
+                
+                <div class="package-card">
+                    <h3>Basic Video Package (50 Videos)</h3>
+                    <span class="price">₹4,999 <span>/per 50 Videos</span></span>
+                    <p>Chhote projects aur YouTube Shorts/Reels ke liye.</p>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> 50 Videos tak ki Editing</li>
+                        <li><i class="fas fa-check-circle"></i> Basic Cuts aur Transitions</li>
+                        <li><i class="fas fa-check-circle"></i> Royalty-free Music & SFX</li>
+                        <li><i class="fas fa-check-circle"></i> 2 Minute tak ki video length</li>
+                        <li><i class="fas fa-times-circle" style="color:#dc3545;"></i> Advanced Motion Graphics</li>
+                    </ul>
+                    <a href="https://wa.me/916388714912?text=Basic%20Video%20Package%20ke%20liye%20details%20batayein" class="btn" target="_blank" target="_blank" rel="noopener">WhatsApp for Details</a>
+                </div>
+
+                <div class="package-card featured">
+                    <h3>Pro Video Package (100 Videos)</h3>
+                    <span class="price">₹9,999 <span>/per 100 Videos</span></span>
+                    <p>Professional YouTube aur Marketing Content ke liye.</p>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> 100 Videos tak ki Editing</li>
+                        <li><i class="fas fa-check-circle"></i> Dynamic Transitions aur Effects</li>
+                        <li><i class="fas fa-check-circle"></i> Advanced Color Grading & Sound Mix</li>
+                        <li><i class="fas fa-check-circle"></i> 10 Minute tak ki video length</li>
+                        <li><i class="fas fa-check-circle"></i> Motion Graphics / Text Overlays</li>
+                    </ul>
+                    <a href="https://wa.me/916388714912?text=Pro%20Video%20Package%20ke%20liye%20details%20batayein" class="btn btn-primary" target="_blank" target="_blank" rel="noopener">WhatsApp for Details</a>
+                </div>
+            </div>
+
+            ---
+            
+            <h2 class="section-title" style="margin-top: 60px;"><i class="fas fa-laptop-code"></i> Web Development Packages (Custom Code)</h2>
+            <div class="pricing-grid">
+                
+                <div class="package-card">
+                    <h3>Standard Website Package</h3>
+                    <span class="price">₹4,999 <span>(One-time / starting)</span></span>
+                    <p>Small business ya portfolio ke liye responsive website.</p>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> 5 Page Static Site (HTML/CSS/JS)</li>
+                        <li><i class="fas fa-check-circle"></i> Mobile aur Tablet Friendly Design</li>
+                        <li><i class="fas fa-check-circle"></i> Basic SEO Optimization</li>
+                        <li><i class="fas fa-check-circle"></i> Contact Form Integration</li>
+                        <li><i class="fas fa-times-circle" style="color:#dc3545;"></i> E-commerce Setup / Database</li>
+                    </ul>
+                    <a href="https://wa.me/916388714912?text=Standard%20Website%20Package%20ke%20liye%20details%20batayein" class="btn" target="_blank" target="_blank" rel="noopener">WhatsApp for Details</a>
+                </div>
+
+                <div class="package-card featured">
+                    <h3>Enterprise Website Package</h3>
+                    <span class="price">₹29,999+ <span>(One-time / starting)</span></span>
+                    <p>Complex requirements aur full-featured custom sites ke liye.</p>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> 15+ Page Dynamic Site</li>
+                        <li><i class="fas fa-check-circle"></i> Custom Backend Development</li>
+                        <li><i class="fas fa-check-circle"></i> Advanced Security aur Performance</li>
+                        <li><i class="fas fa-check-circle"></i> API Integration / Payment Gateway</li>
+                        <li><i class="fas fa-check-circle"></i> 3 Months Technical Support</li>
+                    </ul>
+                    <!-- ACTION: Changed from "Request Custom Quote" to direct payment with "Deposit" for '+' price -->
+                    <a href="https://wa.me/916388714912?text=Enterprise%20Website%20Package%20ke%20liye%20details%20batayein" class="btn btn-primary" target="_blank" target="_blank" rel="noopener">WhatsApp for Details</a>
+                </div>
+            </div>
+
+            ---
+
+            <h2 class="section-title" style="margin-top: 60px;"><i class="fab fa-wordpress"></i> Website via WordPress Packages</h2>
+            <div class="pricing-grid">
+                
+                <div class="package-card">
+                    <h3>Basic WP Starter</h3>
+                    <span class="price">₹3,999 <span>(One-time / starting)</span></span>
+                    <p>Jaldi aur kam budget mein website launch karne ke liye.</p>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> 4 Page WordPress Website</li>
+                        <li><i class="fas fa-check-circle"></i> Premium Theme Installation</li>
+                        <li><i class="fas fa-check-circle"></i> Drag-and-Drop Page Builder</li>
+                        <li><i class="fas fa-check-circle"></i> Basic Security & Backup Setup</li>
+                        <li><i class="fas fa-times-circle" style="color:#dc3545;"></i> WooCommerce Setup</li>
+                    </ul>
+                    <a href="https://wa.me/916388714912?text=Basic%20WP%20Starter%20ke%20liye%20details%20batayein" class="btn" target="_blank" target="_blank" rel="noopener">WhatsApp for Details</a>
+                </div>
+
+                <div class="package-card featured">
+                    <h3>WP E-commerce/Blogging</h3>
+                    <span class="price">₹14,999+ <span>(One-time / starting)</span></span>
+                    <p>Online Store ya high-traffic blog ke liye.</p>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> 10+ Page Blog / E-commerce Site</li>
+                        <li><i class="fas fa-check-circle"></i> WooCommerce/Custom Plugin Setup</li>
+                        <li><i class="fas fa-check-circle"></i> On-page SEO Optimization</li>
+                        <li><i class="fas fa-check-circle"></i> Speed Optimization & CDN Setup</li>
+                        <li><i class="fas fa-check-circle"></i> 1 Month Maintenance Included</li>
+                    </ul>
+                    <!-- ACTION: Changed from "Contact for Quote" to direct payment -->
+                    <a href="https://wa.me/916388714912?text=WP%20E-commerce/Blogging%20ke%20liye%20details%20batayein" class="btn btn-primary" target="_blank" target="_blank" rel="noopener">WhatsApp for Details</a>
+                </div>
+            </div>
+
+            ---
+
+            <h2 class="section-title" style="margin-top: 60px;"><i class="fas fa-share-alt"></i> Social Media Marketing Packages</h2>
+            <div class="pricing-grid">
+                
+                <div class="package-card">
+                    <h3>Starter SMM Package</h3>
+                    <span class="price">₹2,999 <span>/per Month</span></span>
+                    <p>Initial brand building aur basic content strategy ke liye.</p>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> 1 Platform Management (e.g., Instagram)</li>
+                        <li><i class="fas fa-check-circle"></i> 15 Posts per Month Content Strategy</li>
+                        <li><i class="fas fa-check-circle"></i> Basic Audience Targeting</li>
+                        <li><i class="fas fa-check-circle"></i> Weekly Performance Report</li>
+                        <li><i class="fas fa-times-circle" style="color:#dc3545;"></i> Dedicated Ad Campaign Management</li>
+                    </ul>
+                    <a href="https://wa.me/916388714912?text=Starter%20SMM%20Package%20ke%20liye%20details%20batayein" class="btn" target="_blank" target="_blank" rel="noopener">WhatsApp for Details</a>
+                </div>
+
+                <div class="package-card featured">
+                    <h3>Growth SMM Package</h3>
+                    <span class="price">₹6,999 <span>/per Month</span></span>
+                    <p>Full-scale marketing aur multiple ad campaigns ke liye.</p>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> 3 Platforms Management</li>
+                        <li><i class="fas fa-check-circle"></i> 30 Posts per Month Content Creation</li>
+                        <li><i class="fas fa-check-circle"></i> Ad Campaign Management (Google/Facebook)</li>
+                        <li><i class="fas fa-check-circle"></i> Advanced Analytics & Optimization</li>
+                        <li><i class="fas fa-check-circle"></i> Monthly Strategy Meeting</li>
+                    </ul>
+                    <!-- ACTION: Changed from "Contact for Strategy" to direct payment -->
+                    <a href="https://wa.me/916388714912?text=Growth%20SMM%20Package%20ke%20liye%20details%20batayein" class="btn btn-primary" target="_blank" target="_blank" rel="noopener">WhatsApp for Details</a>
+                </div>
+            </div>
+
+            ---
+
+            <h2 class="section-title" style="margin-top: 60px;"><i class="fab fa-google"></i> AdSense/Ads Management Packages</h2>
+            <div class="pricing-grid">
+                
+                <div class="package-card">
+                    <h3>Ad Management Basic</h3>
+                    <span class="price">₹1,999 <span>/per Month</span></span>
+                    <p>Revenue ya traffic badhane ke liye Adsense optimization.</p>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> 1 Platform Ad Management (Google Ads OR Facebook Ads)</li>
+                        <li><i class="fas fa-check-circle"></i> Campaign Setup & Optimization</li>
+                        <li><i class="fas fa-check-circle"></i> A/B Testing of Ad Copies (2 Variants)</li>
+                        <li><i class="fas fa-check-circle"></i> Weekly Budget Monitoring</li>
+                        <li><i class="fas fa-times-circle" style="color:#dc3545;"></i> Full Creative Design</li>
+                    </ul>
+                    <a href="https://wa.me/916388714912?text=Ad%20Management%20Basic%20ke%20liye%20details%20batayein" class="btn" target="_blank" target="_blank" rel="noopener">WhatsApp for Details</a>
+                </div>
+
+                <div class="package-card featured">
+                    <h3>Full Ad Management Suite</h3>
+                    <span class="price">₹4,999 <span>/per Month</span></span>
+                    <p>Maximum ROI aur multi-channel advertising ke liye.</p>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Google & Facebook Ads Management</li>
+                        <li><i class="fas fa-check-circle"></i> Advanced Retargeting Strategy</li>
+                        <li><i class="fas fa-check-circle"></i> Landing Page Optimization Support</li>
+                        <li><i class="fas fa-check-circle"></i> Detailed ROI Analysis Report</li>
+                        <li><i class="fas fa-check-circle"></i> Dedicated Account Manager</li>
+                    </ul>
+                    <!-- ACTION: Changed from "Achieve Max ROI" to direct payment -->
+                    <a href="https://wa.me/916388714912?text=Full%20Ad%20Management%20Suite%20ke%20liye%20details%20batayein" class="btn btn-primary" target="_blank" target="_blank" rel="noopener">WhatsApp for Details</a>
+                </div>
+            </div>
+            
+        </section>
+
+        <section class="contact-section">
+            <h2 class="contact-title">Koi Sawal Hai?</h2>
+            <p class="contact-text">Agar aapko custom package chahiye ya koi sawal hai, toh humse sampark karein.</p>
+            <a href="contact.html" class="btn contact-btn">Contact Me</a>
+        </section>
+
+    </main>
+    
+    <footer id="footer" class="footer">
+        <h2>Get in Touch</h2>
+        <p>Aap mujhse yahan sampark kar sakte hain:</p>
+        <div class="social-links">
+            <a href="mailto:sva16081999@gmail.com" target="_blank"><i class="fas fa-envelope"></i> Email</a>
+            <a href="tel:+916388714912" target="_blank"><i class="fas fa-phone"></i> Call Me</a>
+            <a href="https://wa.me/+916388714912" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+            <a href="https://www.instagram.com/ksit_solutions" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+            <a href="https://github.com/Srihanshkumar537484" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+        </div>
+        <p class="copyright">&copy; 2025 | SRIHANSH IT SOLUTIONS. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
